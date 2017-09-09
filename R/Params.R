@@ -63,7 +63,7 @@ GammaParams <- function(Mean, CV){
   if (Mean <= 0) stop("Mean is strictly positive")
   if (CV <= 0) stop("CV is strictly positive")
 
-  beta = 1 / (mean * CV^2)
+  beta = 1 / (Mean * CV^2)
   alpha = 1 / CV^2
 
   list(alpha = alpha, beta = beta)

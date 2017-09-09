@@ -12,6 +12,10 @@ LazyData: true
 Suggests: ggplot2,
     testthat,
     knitr,
-    rmarkdown
+    rmarkdown,
+    dplyr
 RoxygenNote: 6.0.1
 VignetteBuilder: knitr
+Collate: 
+    'Params.R'
+    'Likelihood.R'

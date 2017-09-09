@@ -9,6 +9,11 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+```{r include=FALSE}
+library(dplyr)
+library(knitr)
+```
+
 ## Finding parameters
 
 The lognormal distribution is expressed via its mu and sigma parameters. However, most interpretations of sample data examines the mean and standard deviation. It is straightforward to translate from one to the other.

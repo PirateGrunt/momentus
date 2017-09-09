@@ -6,7 +6,7 @@ LognormalLikelihood <- function(x, mu, sigma){
   sum(lnL)
 }
 
-#' @title
+#' @title CalcLognormalLikelihood
 #'
 #' @param data A vector of sample observations
 #' @param mean_range A vector with values of the mean

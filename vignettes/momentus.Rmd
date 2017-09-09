@@ -1,0 +1,39 @@
+---
+title: "momentus"
+author: "Brian A. Fannin"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Package Overview}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Finding parameters
+
+The lognormal distribution is expressed via its mu and sigma parameters. However, most interpretations of sample data examines the mean and standard deviation. It is straightforward to translate from one to the other.
+
+```{r}
+lstParams <- LognormalParams(10e3, 1.5)
+lstParams$mu
+lstParams$sigma
+```
+
+## Examining the likelihood
+
+```{r}
+sample_data <- rlnorm(500, lstParams$mu, lstParams$sigma)
+dfL <- CalcLognormalLikelihood(sample_data, c(9e3, 11e3), c(1, 2))
+```
+
+```{r}
+dfL %>% head(5) %>% knitr::kable()
+```
+
+
+```{r }
+library(ggplot2)
+plt <- ggplot(dfL, aes(Mean, CV, z = Likelihood)) + geom_contour(bins=100) # + geom_raster(aes(fill = Likelihood))
+plt
+```
+
